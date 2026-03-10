@@ -22,6 +22,6 @@ class Document(Base):
     pub_date = Column(String, nullable=True)
     bookmarked = Column(Boolean, default=False)
     raw_content = Column(Text, nullable=True)
-    # 'knesset' | 'elyon1' | 'supreme' | 'manual'
+    # 'knesset' | 'elyon1' | 'supreme' | 'psakdin' | 'nevo' | 'manual'
     scraped_from = Column(String, default="manual")
     created_at = Column(DateTime(timezone=True), server_default=func.now())

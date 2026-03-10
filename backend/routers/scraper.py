@@ -6,6 +6,8 @@ import schemas
 from scrapers.knesset_bills import scrape_bills
 from scrapers.knesset_laws import scrape_laws
 from scrapers.court_decisions import scrape_court_decisions
+from scrapers.psakdin import scrape_psakdin
+from scrapers.nevo import scrape_nevo
 from datetime import datetime
 
 router = APIRouter(prefix="/api/scrape", tags=["scraper"])
@@ -57,7 +59,7 @@ def run_full_scrape(db: Session):
     _scrape_state["is_running"] = True
     total = 0
     try:
-        for scraper_fn in [scrape_bills, scrape_laws, scrape_court_decisions]:
+        for scraper_fn in [scrape_bills, scrape_laws, scrape_court_decisions, scrape_psakdin, scrape_nevo]:
             try:
                 records = scraper_fn()
                 added = _upsert_documents(records, db)
