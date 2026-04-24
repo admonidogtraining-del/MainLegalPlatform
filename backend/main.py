@@ -5,6 +5,7 @@ from database import engine, SessionLocal
 import models
 from routers import documents, scraper as scraper_router
 from routers.scraper import run_full_scrape
+from routers import skills as skills_router
 
 # Create DB tables
 models.Base.metadata.create_all(bind=engine)
@@ -21,6 +22,7 @@ app.add_middleware(
 
 app.include_router(documents.router)
 app.include_router(scraper_router.router)
+app.include_router(skills_router.router)
 
 
 @app.get("/api/health")

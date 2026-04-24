@@ -13,3 +13,5 @@ export const deleteDocument = (id) => api.delete(`/documents/${id}`);
 
 export const triggerScrape = () => api.post("/scrape");
 export const getScrapeStatus = () => api.get("/scrape/status");
+
+export const getSkills = () => api.get("/skills");

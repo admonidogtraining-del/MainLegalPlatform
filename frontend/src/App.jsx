@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import Header from "./components/Header";
 import StatsCards from "./components/StatsCards";
+import SkillsPanel from "./components/SkillsPanel";
 import FilterBar from "./components/FilterBar";
 import DocumentList from "./components/DocumentList";
 import UploadModal from "./components/UploadModal";
@@ -65,6 +66,7 @@ export default function App() {
 
       <main className="py-4">
         <StatsCards stats={stats} />
+        <SkillsPanel />
         <FilterBar filters={filters} onChange={setFilters} />
         <DocumentList
           documents={documents}
